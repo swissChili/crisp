@@ -1,32 +1,29 @@
 # crisp
 
-FIXME: description
+Objective-C meets Lisp in one weird language.
 
-## Installation
+## Language
 
-Download from http://example.com/FIXME.
+The language is very simple. There are only a handful of syntactic rules.
 
-## Usage
-
-FIXME: explanation
-
-    $ java -jar crisp-0.1.0-standalone.jar [args]
+- `[object method: arg0 arg1]`: Call a method on an object
+- `[function: arg0 arg1]`: Call a function (functions are also objects)
+- `[function]`: Call a function with no arguments
+- `"foo"`: A string literal (numbers work as expected)
 
 ## Options
 
-FIXME: listing of options this app accepts.
+None so far
 
 ## Examples
 
-...
+*Does not currently run:*
 
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+```
+[let a: "foo"]
+[a print]
+//=> foo
+```
 
 ## License
 
