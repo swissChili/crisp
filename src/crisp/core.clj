@@ -4,9 +4,9 @@
             [crisp.interpreter :as i]))
 
 (def input"
-  1 2 3")
+  [let a: 1]")
 
 (defn -main
   "Parse some debug info."
   [& args]
-  (println (i/interpret (p/parse-crisp input))))
+  (println "Context:" (i/interpret (p/parse-crisp input))))

@@ -16,6 +16,7 @@
 ;; (group)
 
 (declare single)
+(declare crisp)
 
 (def ident
   (bind [i identifier]
@@ -47,6 +48,11 @@
       [_ colon p single]
       (return p))))
 
+(def lambda
+  (bind [l (braces (fwd crisp))]
+    (return { :type :lambda
+              :value l })))
+
 (def method
   (brackets
     (>> trim
@@ -59,7 +65,7 @@
 
 (def single
   (>> trim
-    (<|> method ident str-lit flt-lit num-lit)))
+    (<|> method ident str-lit flt-lit num-lit lambda)))
 
 (def crisp
   (>> trim
@@ -67,4 +73,4 @@
 
 (defn parse-crisp
   [input]
-  (parse crisp input))
+  (:value (parse crisp input)))
