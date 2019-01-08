@@ -3,10 +3,13 @@
   (:require [crisp.parser :as p]
             [crisp.interpreter :as i]))
 
-(def input"
-  [let a: 1]")
+(def input 
+  " [let a: (b): {
+      b
+    }]
+    [a: 123]")
 
 (defn -main
   "Parse some debug info."
   [& args]
-  (println "Context:" (i/interpret (p/parse-crisp input))))
+  (println "return:" (i/interpret (p/parse-crisp input))))

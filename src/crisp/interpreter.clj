@@ -1,13 +1,54 @@
 (ns crisp.interpreter
   (:gen-class))
 
+(def standard
+  { "print"
+      (fn [& things]
+        (println things))})
+
+(defn vifnt
+  "Make into a vector if it's not one"
+  [input]
+  (if (= (class input) clojure.lang.PersistentVector)
+    input
+    [input]))
+
+(defn empty-if-nil
+  [thing]
+  (do
+    (println "thing" thing "w/vifnt" (vifnt thing))
+    (if thing
+      (vifnt thing)
+      [])))
+
 ;; Value to use as initial evaluation. May be useful
 ;; for things like system error returns in the future.
+;; I would use 0 but sublime throughs a fit.
 (def first-eval nil)
 
 ;; Forward-declare this function as it is used by most
 ;; special funcs
 (declare interpret-all)
+
+(defn eval-method-context
+  [context method args]
+  ;; last iteration
+  (do
+    (println "Evaling method context")
+    (if (= (count method) 1)
+      ;; Call the function
+      (do
+        (println "is true! method" method "args" (empty-if-nil args))
+        (apply
+          (interpret-all
+            (get context (:value (first method)))
+            context
+            first-eval)
+          (empty-if-nil args)))
+      ;; Recurse
+      (eval-method-context
+        (get context (first method))
+        args))))
 
 ;; A function that adds something to the context.
 (defn let-fn
@@ -17,10 +58,31 @@
   [context on with]
   ;; Add this to the context
   (do
-    (println "In lambda")
+    (println "In let with" (first with) "on" on)
     (conj context 
-        { (:value (first on)) 
-          (interpret-all (first with) context first-eval) })))
+        { (:value (first on))
+          with })))
+
+(defn lambda-fn
+  [context args body]
+  (do
+    (println "\n\n~~~~~~~~~~~~~~~~ARGS~~~~~~~~~~~~~~~~~~~")
+    (println args)
+    (fn [& given]
+      (do
+        (println "Given" given)
+        (interpret-all
+          (vifnt body)
+          (conj context
+            ;; This beautiful function joins two vectors
+            ;; eg: [a b c] [1 2 3]
+            ;; and constructs a hashmap
+            ;; eg: {a 1, b 2, c 3}
+            (zipmap
+              ;; Get the values of all the identifiers 
+              (map :value args)
+              given))
+          first-eval)))))
 
 ;; A hashmap of functions
 (def special
@@ -32,41 +94,70 @@
   [input context last-eval]
   (let [c (first input)]
     (do
-      (println "Interpreting token" (:value c))
+      (println "\n\n\n=========================\ninterpreting" c)
+      (println "\nof" input)
+      (println "\nrest" (rest input))
       (cond
         (= (count input) 0)
           ;; Input is empty, return last item evaluated
-          context
+          (do
+            (println "returning" last-eval)
+            last-eval)
 
         (= (:type c) :literal)
           ;; Literal value, push to stack  and recurse
           (interpret-all (rest input) context (:value c))
 
+        (= (:type c) :tuple)
+          (interpret-all (rest input)
+                          context
+                          (:value c))
+
         (= (:type c) :ident)
           ;; Identifier, look up, push to stack, recurse
-          (interpret-all (rest input) 
-                          context 
-                          (get context (:value c)))
+          (do
+            (println "looking up identifier")
+            (println "found" (get context (:value c)))
+            (interpret-all (rest input)
+                            context
+                            ;; Interpret ident b/c lazy
+                            (interpret-all
+                              (vifnt (get context (:value c)))
+                              context
+                              first-eval)))
         (= (:type c) :method)
           ;; Method call, look up in context, evaluate
           (let [v (:value c)
-                with (:with v)
+                with (vifnt (:with v))
                 on (:on v)]
             ;; try to find a special function from the first
             ;; object
             (do
-              (println "v" v "with" with "on" on)
               (if-let [s (get special (:value (first on)))]
                 ;; Recurs with context returned from func
                 (interpret-all (rest input)
                                 (s context
                                   (rest on)
-                                  (rest with))
+                                  (vifnt with))
                                 ;; Special functions return
                                 ;; nothing
-                                last-eval))))))))
+                                last-eval)
+                (interpret-all (rest input)
+                  ;; Normal methods can not consume context
+                  context
+                  (eval-method-context context on with)))))
+        (= (:type c) :lambda)
+          (let [v (:value c)
+                a (:args v)
+                b (:body v)]
+            (do
+              (interpret-all
+                (rest input)
+                context
+                ;; Call the lambda generator and add it to the stack
+                (lambda-fn context a b))))))))
 
 (defn interpret
   "Just a wrapper for interpret-all"
   [input]
-  (interpret-all input {} first-eval))
+  (interpret-all input standard first-eval))

@@ -48,10 +48,29 @@
       [_ colon p single]
       (return p))))
 
+(def map-lit
+  (braces
+    (bind [m (fwd crisp)]
+      (return { :type :map
+                :value m }))))
+
+(def tupl
+  (parens
+    (bind [i idents]
+      (return i))))
+
 (def lambda
-  (bind [l (braces (fwd crisp))]
+  ;; (args): {body}
+  (bind [p tupl _ colon l (braces (fwd crisp))]
     (return { :type :lambda
-              :value l })))
+              :value
+              { :args p
+                :body l }})))
+
+(def array
+  (bind [t tupl]
+    (return { :type :array
+              :value t })))
 
 (def method
   (brackets
@@ -65,7 +84,7 @@
 
 (def single
   (>> trim
-    (<|> method ident str-lit flt-lit num-lit lambda)))
+    (<|> method ident str-lit flt-lit num-lit lambda array map-lit)))
 
 (def crisp
   (>> trim
