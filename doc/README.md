@@ -14,3 +14,4 @@ there is no CLI available so there is no point in providing a `jar`.
 ## Installation
 
 Clone the repository from gitlab, and run `lein uberjar` to build a `jar` archive.
+Or just run `lein run` to test it out.
