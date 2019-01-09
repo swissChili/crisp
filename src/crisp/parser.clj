@@ -47,7 +47,7 @@
 (def opt-c-c
   (optional
     (bind
-      [_ colon p single]
+      [_ colon p (many single)]
       (return p))))
 
 (def map-lit

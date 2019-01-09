@@ -41,7 +41,7 @@
         (println "is true! method" method "args" (empty-if-nil args))
         (apply
           (interpret-all
-            (get context (:value (first method)))
+            (vifnt (get context (:value (first method))))
             context
             first-eval)
           (empty-if-nil args)))
