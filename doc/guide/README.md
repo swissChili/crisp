@@ -4,6 +4,15 @@ Crisp is a loosely functional, interpreted programming language inspired
 by Objective-C, Lisp, JavaScript, and Haskell. This document aims to be
 a simple introduction to the language, and it's implementation.
 
+## Installation
+
+Download a binary from the release page on gitlab, or build from source with
+
+```sh
+$ lein uberjar
+$ java -jar target/crisp-0.1.0-standalone.jar
+```
+
 ## Basic Syntax
 
 Crisp uses square brackets religiously. They are used for function calls,

@@ -1,3 +1,19 @@
+---
+home: true
+heroText: Crisp
+tagline: A functional scripting language
+actionText: Getting Started
+actionLink: /guide/
+features:
+- title: Lazy
+  details: Lazy-evaluation makes it easy to write expressive code
+- title: Prototype Based
+  details: Use prototypes to easily give objects state without sacrificing functionality
+- title: JVM-Based
+  details: The interpreter runs on the JVM which means it can run on any platform.
+footer: Copyright  2019 swissChili. Licensed under EPL-2.0
+---
+
 # Crisp
 
 This is the documentation for the Crisp programming language. If you would like
