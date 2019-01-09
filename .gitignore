@@ -10,4 +10,5 @@ pom.xml.asc
 /.nrepl-port
 .hgignore
 .hg/
-/doc/book
+/doc/.vuepress/dist
+public
