@@ -13,21 +13,20 @@ The language is very simple. There are only a handful of syntactic rules.
 
 ## Options
 
-None so far
+None so far. Edit the `input` var in `core.clj` if you would like to test
+different programs.
 
 ## Examples
 
-*Does not currently run:*
-
 ```
 [let a: "foo"]
-[a print]
+[print: a]
 //=> foo
 ```
 
 ## License
 
-Copyright © 2019 FIXME
+Copyright © 2019 swissChili
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
