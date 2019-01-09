@@ -4,12 +4,13 @@
             [crisp.interpreter :as i]))
 
 (def input
-  " [let greet: (name): {
-      [name: 1]
-    }]
-    [greet: (a): {
-      [print: a]
-    }]")
+  "[let a: \"hello\"] [print: a]")
+    ;[let greet: (name): {
+    ;  [name: 1]
+    ;}]
+    ;[greet: (a): {
+    ;  [print: a]
+    ;}]")
 
 (defn -main
   "Parse some debug info."
