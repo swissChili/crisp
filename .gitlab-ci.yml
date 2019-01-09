@@ -1,6 +1,23 @@
-image: clojure:lein-2.8.3
-before_script:
-- lein deps
 test:
-    script:
-    - lein run
+  image: clojure:lein-2.8.3
+  script:
+  - lein deps
+  - lein run
+
+pages:
+  image: node:9.11.1
+  cache:
+    paths:
+    - node_modules/
+
+  script:
+  - cd doc
+  - yarn
+  - yarn build
+
+  artifacts:
+    paths:
+    - public
+  
+  only:
+  - master

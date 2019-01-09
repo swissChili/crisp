@@ -1,4 +1,4 @@
-# Introduction to crisp
+# Crisp Guide
 
 Crisp is a loosely functional, interpreted programming language inspired
 by Objective-C, Lisp, JavaScript, and Haskell. This document aims to be
@@ -9,7 +9,7 @@ a simple introduction to the language, and it's implementation.
 Crisp uses square brackets religiously. They are used for function calls,
 and method calls on objects. 
 
-```m
+```py
 [print: "hello, world"]
 ```
 

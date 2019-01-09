@@ -1,0 +1,17 @@
+{
+  "name": "crisp_docs",
+  "version": "0.1.0",
+  "description": "Documentation for the crisp programming language.",
+  "main": "index.js",
+  "author": "swissChili",
+  "license": "EPL-2.0",
+  "private": false,
+  "scripts": {
+    "start": "vuepress dev .",
+    "build": "vuepress build ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vuepress": "^0.10.0"
+  }
+}
