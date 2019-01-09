@@ -12,3 +12,4 @@ pom.xml.asc
 .hg/
 /doc/.vuepress/dist
 public
+/doc/node_modules
