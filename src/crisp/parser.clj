@@ -13,7 +13,9 @@
 ;; "string literal"
 ;; 123   ; Int
 ;; 0.123 ; Float
-;; (group)
+;; (1 2 3) ; tuple
+;; {a [b: c] d} ; syntax array
+;; (a): {[print: "hello" a]} ; lambda
 
 (declare single)
 (declare crisp)
@@ -61,7 +63,7 @@
 
 (def lambda
   ;; (args): {body}
-  (bind [p tupl _ colon l (braces (fwd crisp))]
+  (bind [p tupl _ colon l (braces (many (fwd crisp)))]
     (return { :type :lambda
               :value
               { :args p

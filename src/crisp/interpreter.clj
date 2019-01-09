@@ -1,10 +1,10 @@
 (ns crisp.interpreter
-  (:gen-class))
+  (:gen-class)
+  (:require [clojure.string :as str]))
 
+;; TODO: write standard library
 (def standard
-  { "print"
-      (fn [& things]
-        (println things))})
+  { })
 
 (defn vifnt
   "Make into a vector if it's not one"
@@ -16,7 +16,7 @@
 (defn empty-if-nil
   [thing]
   (do
-    (println "thing" thing "w/vifnt" (vifnt thing))
+    (println "is nil?" thing "w/vifnt" (vifnt thing))
     (if thing
       (vifnt thing)
       [])))
@@ -63,16 +63,26 @@
         { (:value (first on))
           with })))
 
+(defn print-fn
+  [context on with]
+  (do
+    (println
+      (str/join " "
+        ;; Interpret all arguments
+        (map
+          (fn [x]
+            (interpret-all (vifnt x) context first-eval))
+          with)))))
+
 (defn lambda-fn
   [context args body]
   (do
-    (println "\n\n~~~~~~~~~~~~~~~~ARGS~~~~~~~~~~~~~~~~~~~")
-    (println args)
+    (println "args" args)
     (fn [& given]
       (do
         (println "Given" given)
         (interpret-all
-          (vifnt body)
+          (vifnt (first body))
           (conj context
             ;; This beautiful function joins two vectors
             ;; eg: [a b c] [1 2 3]
@@ -86,7 +96,8 @@
 
 ;; A hashmap of functions
 (def special
-  { "let" let-fn })
+  { "let" let-fn
+    "print" print-fn })
 
 ;; The main interpret function. Recursively evaluates
 ;; data and passes the updated context on.
@@ -129,7 +140,7 @@
           ;; Method call, look up in context, evaluate
           (let [v (:value c)
                 with (vifnt (:with v))
-                on (:on v)]
+                on (vifnt (:on v))]
             ;; try to find a special function from the first
             ;; object
             (do
