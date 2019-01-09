@@ -24,6 +24,17 @@ different programs.
 //=> foo
 ```
 
+## Docs
+
+Docs are available in the `doc` directory. Build them with VuePress by running
+```sh
+$ yarn
+$ yarn start
+```
+And opening `localhost:8080` in a browser. You can also just read the docs from
+markdown on the GitLab site. Also, if the pipeline starts working, you will be
+able to read the docs at [swisschili.gitlab.io/crisp](https://swisschili.gitlab.io/crisp). 
+
 ## License
 
 Copyright © 2019 swissChili

@@ -8,7 +8,7 @@ pages:
   image: node:9.11.1
   cache:
     paths:
-    - node_modules/
+    - doc/node_modules/
 
   script:
   - cd doc
@@ -21,6 +21,6 @@ pages:
   artifacts:
     paths:
     - public
-  
+
   only:
   - master
