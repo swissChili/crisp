@@ -79,6 +79,11 @@
     (return { :type :array
               :value t })))
 
+(def nil-literal
+  (bind [n nil-lit]
+    (return { :type :literal
+              :value nil })))
+
 (def method
   (brackets
     (>> trim
@@ -91,7 +96,7 @@
 
 (def single
   (>> trim
-    (<|> method str-lit num-lit flt-lit boolean-lit ident num-lit lambda map-lit)))
+    (<|> method str-lit num-lit flt-lit boolean-lit nil-lit ident num-lit lambda map-lit)))
 
 (def crisp
   (>> trim
