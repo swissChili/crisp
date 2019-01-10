@@ -35,9 +35,9 @@ nature of the language.
 
 ### Numbers
 
-Like JavaScript, Crisp stores all numbers as floats. This is just easier to
-parse. Numbers can be written literally as you expect: `123` `1.23` `0.123`
-all work as you would expect.
+Numbers can be written literally as you'd expect: `123` `1.23` `0.123`
+all work as you would expect. Integers are stored as 32 bit signed ints, and
+decimals as 64 bit floats.
 
 ### Strings
 
@@ -46,8 +46,8 @@ as Clojure strings, so they support UTF-8 natively. `"This is a string"`.
 
 ### Booleans
 
-As of `0.1.0` Crisp does not have a native Boolean type. It is recommended to use
-1 and 0 as true and false, respectively. 
+Crisp booleans work exactly as expected. Anything except `nil`, `false`, and
+0 is truthy. 
 
 ### Lambdas
 

@@ -99,6 +99,12 @@
   { "let" let-fn
     "print" print-fn })
 
+;; A hashmap of functions, but unlike special, these
+;; can not modify the context. They do still have 
+;; access to the AST though.
+(def reserved
+  { })
+
 ;; The main interpret function. Recursively evaluates
 ;; data and passes the updated context on.
 (defn interpret-all

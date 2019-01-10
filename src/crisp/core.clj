@@ -8,10 +8,10 @@
     [let greet: (name to_print): {
       [name: to_print]
     }]
-    
-    [greet: (a): {
+
+    [greet: (a b): {
       [print: a]
-    } 12345]")
+    } 1 true]")
 
 (defn -main
   "Parse some debug info."

@@ -30,6 +30,11 @@
     (return { :type :literal
               :value s })))
 
+(def boolean-lit
+  (bind [b bool-lit]
+    (return { :type :literal
+              :value b })))
+
 (def flt-lit
   (bind [f float-lit]
     (return { :type :literal
@@ -86,7 +91,7 @@
 
 (def single
   (>> trim
-    (<|> method ident str-lit flt-lit num-lit lambda array map-lit)))
+    (<|> method str-lit num-lit flt-lit boolean-lit ident num-lit lambda map-lit)))
 
 (def crisp
   (>> trim
