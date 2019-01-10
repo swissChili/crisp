@@ -27,6 +27,19 @@ with one argument, a string. It is important to note that arguments, like
 everything in crisp, are evaluated lazily. This means that it is only evaluated
 once it is needed, saving some time up front.
 
+## Variables
+
+Variables in Crisp are immutable, which means you can't change theri value after
+you create them. Variables are created with the `let` function.
+
+```python
+[let name: "Jeff"]
+[print: "Hello" name]
+#=> Hello Jeff
+[let name: "bob"]
+#=> Runtime error
+```
+
 ## Basic Types
 
 Crisp has most of the types you're probably used to from any other language.

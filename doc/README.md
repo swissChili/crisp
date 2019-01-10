@@ -9,7 +9,7 @@ features:
   details: Lazy-evaluation makes it easy to write expressive code
 - title: Prototype Based
   details: Use prototypes to easily give objects state without sacrificing functionality
-- title: JVM-Based
+- title: JVM
   details: The interpreter runs on the JVM which means it can run on any platform.
 footer: Copyright  2019 swissChili. Licensed under EPL-2.0
 ---
