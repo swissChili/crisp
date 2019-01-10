@@ -1,4 +1,4 @@
-# Crisp Guide
+# Guide
 
 Crisp is a loosely functional, interpreted programming language inspired
 by Objective-C, Lisp, JavaScript, and Haskell. This document aims to be

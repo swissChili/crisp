@@ -9,6 +9,10 @@ module.exports = {
 			{ text: "Developer Docs", link: "/dev/" }
 		],
 		sidebarDepth: 2,
-		displayAllHeaders: true
+		displayAllHeaders: true,
+		sidebar: [
+			"/guide/",
+			"/dev/"
+		]
 	}
 }

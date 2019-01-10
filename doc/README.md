@@ -14,8 +14,6 @@ features:
 footer: Copyright  2019 swissChili. Licensed under EPL-2.0
 ---
 
-# Crisp
-
 This is the documentation for the Crisp programming language. If you would like
 to use the language, please read the [guide](guide/).
 
