@@ -5,13 +5,10 @@
 
 (def input
   "
-    [let greet: (name to_print): {
-      [name: to_print]
-    }]
-
-    [greet: (a b): {
-      [print: a]
-    } 1 true]")
+    [if: [eq: [add: 1.5 1.5] 3.0]
+      [print: \"True\"]
+      [print: \"False\"]
+    ]")
 
 (defn -main
   "Parse some debug info."

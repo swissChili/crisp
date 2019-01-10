@@ -99,11 +99,75 @@
   { "let" let-fn
     "print" print-fn })
 
+(defn rec-binary
+  [items func]
+  (do
+    (println "In recurisve binary func")
+    (cond
+      (= (count items) 1)
+        (first items)
+      :default
+        (func (first items) (rec-binary (rest items) func)))))
+
+(defn op-fn
+  [context items op]
+  (let [w (map
+              (fn [x]
+                (interpret-all (vifnt x) context first-eval))
+              items)]
+        (op (first w) (rec-binary (rest w) op))))
+
+(defn add-fn
+  [context on with]
+  (op-fn context with +))
+
+(defn sub-fn
+  [context on with]
+  (op-fn context with -))
+
+(defn div-fn
+  [context on with]
+  (op-fn context with /))
+
+(defn mult-fn
+  [context on with]
+  (op-fn context with *))
+
+(defn eq-fn
+  [context on with]
+  (op-fn context with =))
+
+(defn if-fn
+  [context on with]
+  ;; Alright, this function is a bit complicated.
+  ;; Basically, it takes one `on` value, evals,
+  ;; checks if it's true, if so, evaluates and
+  ;; returns the first `with`, otherwise the 
+  ;; second.
+  (do
+    (println "In if")
+    (let [evaluated
+        (interpret-all (vifnt (first with)) context first-eval)]
+      (do
+        (println "Checking Equality of" (vifnt (first with)))
+        (if evaluated
+          (do
+            (println evaluated "Is True")
+            (interpret-all (vifnt (nth with 1)) context first-eval))
+          (do
+            (println evaluated "Is False")
+            (interpret-all (vifnt (nth with 2)) context first-eval)))))))
+
 ;; A hashmap of functions, but unlike special, these
 ;; can not modify the context. They do still have 
 ;; access to the AST though.
 (def reserved
-  { })
+  { "add" add-fn
+    "sub" sub-fn
+    "div" div-fn
+    "mult" mult-fn
+    "eq" eq-fn
+    "if" if-fn })
 
 ;; The main interpret function. Recursively evaluates
 ;; data and passes the updated context on.
@@ -159,10 +223,18 @@
                                 ;; Special functions return
                                 ;; nothing
                                 last-eval)
-                (interpret-all (rest input)
-                  ;; Normal methods can not consume context
-                  context
-                  (eval-method-context context on with)))))
+                ;; Or, try a reserved function
+                (if-let [r (get reserved (:value (first on)))]
+                  (do
+                    (interpret-all (rest input)
+                                    context
+                                    (r context
+                                      (rest on)
+                                      (vifnt with))))
+                  (interpret-all (rest input)
+                    ;; Normal methods can not consume context
+                    context
+                    (eval-method-context context on with))))))
         (= (:type c) :lambda)
           (let [v (:value c)
                 a (:args v)
