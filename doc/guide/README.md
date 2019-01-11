@@ -6,7 +6,7 @@ a simple introduction to the language, and it's implementation.
 
 ## Installation
 
-Download a binary from the release page on gitlab, or build from source with
+[Download the jar](/crisp/crisp.jar), or build from source with
 
 ```sh
 $ lein uberjar
