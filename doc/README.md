@@ -13,6 +13,16 @@ features:
   details: The interpreter runs on the JVM which means it can run on any platform.
 footer: Copyright  2019 swissChili. Licensed under EPL-2.0
 ---
+## Factorial Example
+```python
+[let fact: (n): {
+	[if: [lt: n 2]
+	   1
+	   [mult: [fact: [sub: n 1]] n ]]}]
+
+[print: "Factorial of 20 is" [fact: 20]]
+#=> Factorial of 20 is 2432902008176640000
+```
 
 This is the documentation for the Crisp programming language. If you would like
 to use the language, please read the [guide](guide/).

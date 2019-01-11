@@ -4,7 +4,7 @@
 
 ;; TODO: write standard library
 (def standard
-  { })
+  {  })
 
 (defn vifnt
   "Make into a vector if it's not one"
@@ -38,13 +38,16 @@
     (if (= (count method) 1)
       ;; Call the function
       (do
-        (println "is true! method" method "args" (empty-if-nil args))
-        (apply
-          (interpret-all
-            (vifnt (get context (:value (first method))))
-            context
-            first-eval)
-          (empty-if-nil args)))
+        (println "is last method! method" method "args" (empty-if-nil args))
+        (let [m (get context (:value (first method)))]
+          (do
+            (println "About to call with" m "from" (first method))
+            (apply
+              (interpret-all
+                (vifnt m)
+                context
+                first-eval)
+              (empty-if-nil args)))))
       ;; Recurse
       (eval-method-context
         (get context (first method))
@@ -91,7 +94,14 @@
             (zipmap
               ;; Get the values of all the identifiers 
               (map :value args)
-              given))
+              (map
+                (fn [x]
+                  (conj
+                    x
+                    { :type :context
+                      :context context
+                      :value x }))
+                given)))
           first-eval)))))
 
 ;; A hashmap of functions
@@ -137,6 +147,10 @@
   [context on with]
   (op-fn context with =))
 
+(defn lt-fn
+  [context on with]
+  (op-fn context with <))
+
 (defn if-fn
   [context on with]
   ;; Alright, this function is a bit complicated.
@@ -167,7 +181,8 @@
     "div" div-fn
     "mult" mult-fn
     "eq" eq-fn
-    "if" if-fn })
+    "if" if-fn
+    "lt" lt-fn })
 
 ;; The main interpret function. Recursively evaluates
 ;; data and passes the updated context on.
@@ -185,6 +200,17 @@
             (println "returning" last-eval)
             last-eval)
 
+        ;; Context given in AST
+        (= (:type c) :context)
+          (do
+            (interpret-all
+              (rest input)
+              context
+              (interpret-all 
+                (vifnt (:value c))
+                (:context c)
+                last-eval)))
+
         (= (:type c) :literal)
           ;; Literal value, push to stack  and recurse
           (interpret-all (rest input) context (:value c))
@@ -199,13 +225,20 @@
           (do
             (println "looking up identifier")
             (println "found" (get context (:value c)))
-            (interpret-all (rest input)
-                            context
-                            ;; Interpret ident b/c lazy
-                            (interpret-all
-                              (vifnt (get context (:value c)))
-                              context
-                              first-eval)))
+            (let [m (get context (:value c))]
+              (if (:cache m)
+                (interpret-all (rest input)
+                                context
+                                (:cache m))
+                ;; Otherwise, evaluate lazily.
+                (interpret-all (rest input)
+                                context
+                                ;; Interpret ident b/c lazy
+                                (interpret-all
+                                  (vifnt (get context (:value c)))
+                                  context
+                                  first-eval)))))
+
         (= (:type c) :method)
           ;; Method call, look up in context, evaluate
           (let [v (:value c)

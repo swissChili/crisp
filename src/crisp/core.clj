@@ -4,11 +4,12 @@
             [crisp.interpreter :as i]))
 
 (def input
-  "
-    [if: [eq: [add: 1.5 1.5] 3.0]
-      [print: \"True\"]
-      [print: \"False\"]
-    ]")
+  " [let fact: (n): {
+      [if: [lt: n 2]
+           1
+           [mult: [fact: [sub: n 1]] n ]]}]
+
+    [fact: 20]")
 
 (defn -main
   "Parse some debug info."
