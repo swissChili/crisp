@@ -2,6 +2,7 @@ test:
   image: clojure:lein-2.8.3
   script:
   - lein deps
+  - lein test
   - lein run
 
 pages:

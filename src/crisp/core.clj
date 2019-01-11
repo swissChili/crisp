@@ -11,7 +11,18 @@
 
     [fact: 20]")
 
+(defn repl
+  []
+  (do
+    (print "\033[32m> \033[0m")
+    (flush)
+    (i/interpret (p/parse-crisp (read-line)))
+    (repl)))
+
 (defn -main
   "Parse some debug info."
   [& args]
-  (println "return:" (i/interpret (p/parse-crisp input))))
+  (if (> (count args) 0)
+    (i/interpret (p/parse-crisp (slurp (first args))))
+    (repl)))
+  ;(println "return:" (i/interpret (p/parse-crisp input))))
