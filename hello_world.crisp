@@ -1,0 +1,7 @@
+[print: "Hello, World"]
+
+[let greet: (name): {
+	[print: "Hello" name]
+}]
+
+[greet: "Jeff"]
