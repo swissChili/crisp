@@ -1,4 +1,4 @@
-# crisp
+# crisp ![Circle CI](https://img.shields.io/circleci/project/github/swissChili/crisp.svg)
 
 Objective-C meets Lisp in one weird language.
 
