@@ -33,7 +33,7 @@ $ yarn start
 ```
 And opening `localhost:8080` in a browser. You can also just read the docs from
 markdown on the GitLab site. Also, if the pipeline starts working, you will be
-able to read the docs at [swisschili.gitlab.io/crisp](https://swisschili.gitlab.io/crisp). 
+able to read the docs at [swisschili.github.io/crisp](https://swisschili.github.io/crisp). 
 
 ## License
 
