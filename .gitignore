@@ -14,3 +14,4 @@ pom.xml.asc
 public
 public-tmp
 /doc/node_modules
+/doc/package-lock.json

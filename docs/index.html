@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Crisp</title>
+    <meta name="description" content="Documentation for the Crisp programming language">
+    
+    
+    <link rel="preload" href="/crisp/assets/css/styles.f159cbdb.css" as="style"><link rel="preload" href="/crisp/assets/js/app.f159cbdb.js" as="script"><link rel="preload" href="/crisp/assets/js/1.4cc392ee.js" as="script"><link rel="prefetch" href="/crisp/assets/js/2.116fa80c.js"><link rel="prefetch" href="/crisp/assets/js/3.732a9b55.js"><link rel="prefetch" href="/crisp/assets/js/4.645f397b.js">
+    <link rel="stylesheet" href="/crisp/assets/css/styles.f159cbdb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/crisp/" class="home-link router-link-exact-active router-link-active"><!----><span class="site-name">
+      Crisp
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="https://gitlab.com/swissChili/crisp" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Source
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/crisp/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="/crisp/dev/" class="nav-link">Developer Docs</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://gitlab.com/swissChili/crisp" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Source
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/crisp/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="/crisp/dev/" class="nav-link">Developer Docs</a></div><!----></nav><ul class="sidebar-links"><li><a href="/crisp/guide/" class="sidebar-link">Guide</a></li><li><a href="/crisp/dev/" class="sidebar-link">Developer Documentation</a></li></ul></div><div class="home"><div class="hero"><!----><h1>Crisp</h1><p class="description">
+      A functional scripting language
+    </p><p class="action"><a href="/crisp/guide/" class="nav-link action-button">Getting Started</a></p></div><div class="features"><div class="feature"><h2>Lazy</h2><p>Lazy-evaluation makes it easy to write expressive code</p></div><div class="feature"><h2>Prototype Based</h2><p>Use prototypes to easily give objects state without sacrificing functionality</p></div><div class="feature"><h2>JVM</h2><p>The interpreter runs on the JVM which means it can run on any platform.</p></div></div><div class="content custom"><h2 id="factorial-example"><a href="#factorial-example" aria-hidden="true" class="header-anchor">#</a> Factorial Example</h2><div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">[</span>let fact<span class="token punctuation">:</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+	<span class="token punctuation">[</span><span class="token keyword">if</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>lt<span class="token punctuation">:</span> n <span class="token number">2</span><span class="token punctuation">]</span>
+	   <span class="token number">1</span>
+	   <span class="token punctuation">[</span>mult<span class="token punctuation">:</span> <span class="token punctuation">[</span>fact<span class="token punctuation">:</span> <span class="token punctuation">[</span>sub<span class="token punctuation">:</span> n <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span> n <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+
+<span class="token punctuation">[</span><span class="token keyword">print</span><span class="token punctuation">:</span> <span class="token string">&quot;Factorial of 20 is&quot;</span> <span class="token punctuation">[</span>fact<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token comment">#=&gt; Factorial of 20 is 2432902008176640000</span>
+</code></pre></div><p>This is the documentation for the Crisp programming language. If you would like
+to use the language, please read the <a href="/crisp/guide/">guide</a>.</p><p>For API documentation, please consult the <a href="/crisp/dev/">dev docs</a>.</p><h2 id="implementation"><a href="#implementation" aria-hidden="true" class="header-anchor">#</a> Implementation</h2><p>Crisp is implemented in Clojure, using a parser combinator called Kern. It is an
+interpreted language, and everything in the language is lazy-evaluated. Currently
+there is no CLI available so there is no point in providing a <code>jar</code>.</p><h2 id="installation"><a href="#installation" aria-hidden="true" class="header-anchor">#</a> Installation</h2><p>Clone the repository from gitlab, and run <code>lein uberjar</code> to build a <code>jar</code> archive.
+Or just run <code>lein run</code> to test it out.</p></div><div class="footer">
+    Copyright  2019 swissChili. Licensed under EPL-2.0
+  </div></div></div></div>
+    <script src="/crisp/assets/js/app.f159cbdb.js" defer></script><script src="/crisp/assets/js/1.4cc392ee.js" defer></script>
+  </body>
+</html>

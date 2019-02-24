@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Developer Documentation | Crisp</title>
+    <meta name="description" content="Documentation for the Crisp programming language">
+    
+    
+    <link rel="preload" href="/crisp/assets/css/styles.f159cbdb.css" as="style"><link rel="preload" href="/crisp/assets/js/app.f159cbdb.js" as="script"><link rel="preload" href="/crisp/assets/js/2.116fa80c.js" as="script"><link rel="prefetch" href="/crisp/assets/js/1.4cc392ee.js"><link rel="prefetch" href="/crisp/assets/js/3.732a9b55.js"><link rel="prefetch" href="/crisp/assets/js/4.645f397b.js">
+    <link rel="stylesheet" href="/crisp/assets/css/styles.f159cbdb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/crisp/" class="home-link router-link-active"><!----><span class="site-name">
+      Crisp
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="https://gitlab.com/swissChili/crisp" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Source
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/crisp/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="/crisp/dev/" class="nav-link router-link-exact-active router-link-active">Developer Docs</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://gitlab.com/swissChili/crisp" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Source
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/crisp/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="/crisp/dev/" class="nav-link router-link-exact-active router-link-active">Developer Docs</a></div><!----></nav><ul class="sidebar-links"><li><a href="/crisp/guide/" class="sidebar-link">Guide</a></li><li><a href="/crisp/dev/" class="active sidebar-link">Developer Documentation</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/crisp/dev/#math" class="sidebar-link">Math</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/crisp/dev/#eq" class="sidebar-link">eq</a></li><li class="sidebar-sub-header"><a href="/crisp/dev/#add" class="sidebar-link">add</a></li><li class="sidebar-sub-header"><a href="/crisp/dev/#sub-mult-div" class="sidebar-link">sub, mult, div</a></li></ul></li><li class="sidebar-sub-header"><a href="/crisp/dev/#logic" class="sidebar-link">Logic</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/crisp/dev/#if" class="sidebar-link">if</a></li></ul></li><li class="sidebar-sub-header"><a href="/crisp/dev/#io" class="sidebar-link">IO</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/crisp/dev/#print" class="sidebar-link">print</a></li><li class="sidebar-sub-header"><a href="/crisp/dev/#debug" class="sidebar-link">debug</a></li></ul></li></ul></li></ul></div><div class="page"><div class="content"><h1 id="developer-documentation"><a href="#developer-documentation" aria-hidden="true" class="header-anchor">#</a> Developer Documentation</h1><h2 id="math"><a href="#math" aria-hidden="true" class="header-anchor">#</a> Math</h2><h3 id="eq"><a href="#eq" aria-hidden="true" class="header-anchor">#</a><code>eq</code></h3><p>Checks if arguments are equal.</p><div class="language-py extra-class"><pre class="language-text"><code>[eq: 1 1 1]
+#=&gt; true
+[eq: 2 2 3]
+#=&gt; false
+</code></pre></div><h3 id="add"><a href="#add" aria-hidden="true" class="header-anchor">#</a><code>add</code></h3><p>Adds arguments together. Arguments must be numbers.</p><div class="language-py extra-class"><pre class="language-text"><code>[add: 1 2 3]
+#=&gt; 6
+[add: 1.5 21]
+#=&gt; 22.5
+</code></pre></div><h3 id="sub-mult-div"><a href="#sub-mult-div" aria-hidden="true" class="header-anchor">#</a><code>sub</code>, <code>mult</code>, <code>div</code></h3><p>All do basically what their names says. Each takes 2 or more numbers
+as arguments and returns another number</p><h2 id="logic"><a href="#logic" aria-hidden="true" class="header-anchor">#</a> Logic</h2><h3 id="if"><a href="#if" aria-hidden="true" class="header-anchor">#</a><code>if</code></h3><p>Takes exactly three arguments. Evaluates the first, if it is true, it
+evaluates and returns the second. Otherwise, the third.</p><div class="language-py extra-class"><pre class="language-text"><code>[if: true
+	[print: &quot;Is True&quot;]
+	[print: &quot;Is False&quot;]]
+#=&gt; Is True
+</code></pre></div><p>Example demonstrating return:</p><div class="language-py extra-class"><pre class="language-text"><code>[let result:
+	[if: true
+		1
+		2]]
+[print: result]
+#=&gt; 1
+</code></pre></div><h2 id="io"><a href="#io" aria-hidden="true" class="header-anchor">#</a> IO</h2><h3 id="print"><a href="#print" aria-hidden="true" class="header-anchor">#</a><code>print</code></h3><p>Prints it's arguments, evaluated to the screen.</p><div class="language-py extra-class"><pre class="language-text"><code>[print: &quot;Hello, World&quot; 1 2.0]
+#=&gt; Hello, World 1.0 2.0
+</code></pre></div><h3 id="debug"><a href="#debug" aria-hidden="true" class="header-anchor">#</a><code>debug</code></h3><p>Prints it's arguments unevaluated to the screen. In other words, this prints
+the AST that represents it's arguments. This is printed in Clojure form. If
+it prooves useful JSON output may be implemented.</p></div><div class="page-edit"><!----><!----></div><div class="page-nav"><p class="inner"><span class="prev">
+        ← <a href="/crisp/guide/" class="prev">
+          Guide
+        </a></span><!----></p></div></div></div></div>
+    <script src="/crisp/assets/js/app.f159cbdb.js" defer></script><script src="/crisp/assets/js/2.116fa80c.js" defer></script>
+  </body>
+</html>

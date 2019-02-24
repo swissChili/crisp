@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Guide | Crisp</title>
+    <meta name="description" content="Documentation for the Crisp programming language">
+    
+    
+    <link rel="preload" href="/crisp/assets/css/styles.f159cbdb.css" as="style"><link rel="preload" href="/crisp/assets/js/app.f159cbdb.js" as="script"><link rel="preload" href="/crisp/assets/js/3.732a9b55.js" as="script"><link rel="prefetch" href="/crisp/assets/js/1.4cc392ee.js"><link rel="prefetch" href="/crisp/assets/js/2.116fa80c.js"><link rel="prefetch" href="/crisp/assets/js/4.645f397b.js">
+    <link rel="stylesheet" href="/crisp/assets/css/styles.f159cbdb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/crisp/" class="home-link router-link-active"><!----><span class="site-name">
+      Crisp
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="https://gitlab.com/swissChili/crisp" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Source
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/crisp/guide/" class="nav-link router-link-exact-active router-link-active">Guide</a></div><div class="nav-item"><a href="/crisp/dev/" class="nav-link">Developer Docs</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://gitlab.com/swissChili/crisp" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Source
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/crisp/guide/" class="nav-link router-link-exact-active router-link-active">Guide</a></div><div class="nav-item"><a href="/crisp/dev/" class="nav-link">Developer Docs</a></div><!----></nav><ul class="sidebar-links"><li><a href="/crisp/guide/" class="active sidebar-link">Guide</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/crisp/guide/#installation" class="sidebar-link">Installation</a></li><li class="sidebar-sub-header"><a href="/crisp/guide/#basic-syntax" class="sidebar-link">Basic Syntax</a></li><li class="sidebar-sub-header"><a href="/crisp/guide/#variables" class="sidebar-link">Variables</a></li><li class="sidebar-sub-header"><a href="/crisp/guide/#basic-types" class="sidebar-link">Basic Types</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/crisp/guide/#numbers" class="sidebar-link">Numbers</a></li><li class="sidebar-sub-header"><a href="/crisp/guide/#strings" class="sidebar-link">Strings</a></li><li class="sidebar-sub-header"><a href="/crisp/guide/#booleans" class="sidebar-link">Booleans</a></li><li class="sidebar-sub-header"><a href="/crisp/guide/#lambdas" class="sidebar-link">Lambdas</a></li></ul></li></ul></li><li><a href="/crisp/dev/" class="sidebar-link">Developer Documentation</a></li></ul></div><div class="page"><div class="content"><h1 id="guide"><a href="#guide" aria-hidden="true" class="header-anchor">#</a> Guide</h1><p>Crisp is a loosely functional, interpreted programming language inspired
+by Objective-C, Lisp, JavaScript, and Haskell. This document aims to be
+a simple introduction to the language, and it's implementation.</p><h2 id="installation"><a href="#installation" aria-hidden="true" class="header-anchor">#</a> Installation</h2><p><a href="/crisp/crisp.jar">Download the jar</a>, or build from source with</p><div class="language-sh extra-class"><pre class="language-text"><code>$ lein uberjar
+$ java -jar target/crisp-0.1.0-standalone.jar
+</code></pre></div><h2 id="basic-syntax"><a href="#basic-syntax" aria-hidden="true" class="header-anchor">#</a> Basic Syntax</h2><p>Crisp uses square brackets religiously. They are used for function calls,
+and method calls on objects.</p><div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">[</span><span class="token keyword">print</span><span class="token punctuation">:</span> <span class="token string">&quot;hello, world&quot;</span><span class="token punctuation">]</span>
+</code></pre></div><p>Will print <code>hello, world</code> to the screen. This is calling the <code>print</code> function
+with one argument, a string. It is important to note that arguments, like
+everything in crisp, are evaluated lazily. This means that it is only evaluated
+once it is needed, saving some time up front.</p><h2 id="variables"><a href="#variables" aria-hidden="true" class="header-anchor">#</a> Variables</h2><p>Variables in Crisp are immutable, which means you can't change theri value after
+you create them. Variables are created with the <code>let</code> function.</p><div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">[</span>let name<span class="token punctuation">:</span> <span class="token string">&quot;Jeff&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token keyword">print</span><span class="token punctuation">:</span> <span class="token string">&quot;Hello&quot;</span> name<span class="token punctuation">]</span>
+<span class="token comment">#=&gt; Hello Jeff</span>
+<span class="token punctuation">[</span>let name<span class="token punctuation">:</span> <span class="token string">&quot;bob&quot;</span><span class="token punctuation">]</span>
+<span class="token comment">#=&gt; Runtime error</span>
+</code></pre></div><h2 id="basic-types"><a href="#basic-types" aria-hidden="true" class="header-anchor">#</a> Basic Types</h2><p>Crisp has most of the types you're probably used to from any other language.
+There are slight exceptions with how some of them function because of the lazy
+nature of the language.</p><h3 id="numbers"><a href="#numbers" aria-hidden="true" class="header-anchor">#</a> Numbers</h3><p>Numbers can be written literally as you'd expect: <code>123</code><code>1.23</code><code>0.123</code>
+all work as you would expect. Integers are stored as 32 bit signed ints, and
+decimals as 64 bit floats.</p><h3 id="strings"><a href="#strings" aria-hidden="true" class="header-anchor">#</a> Strings</h3><p>Like most lisps, strings must be double-quoted. These are stored internally
+as Clojure strings, so they support UTF-8 natively. <code>&quot;This is a string&quot;</code>.</p><h3 id="booleans"><a href="#booleans" aria-hidden="true" class="header-anchor">#</a> Booleans</h3><p>Crisp booleans work exactly as expected. Anything except <code>nil</code>, <code>false</code>, and
+0 is truthy.</p><h3 id="lambdas"><a href="#lambdas" aria-hidden="true" class="header-anchor">#</a> Lambdas</h3><p>Lambdas are an integral part of this language. Being functional (and lazy), functions
+can be passed as arguments to functions, and manipulated the same way as other data.</p><p>The lambda syntax is as follows:</p><div class="language-py extra-class"><pre class="language-text"><code>(arg0 arg1 arg2): {
+	# lambda body
+	[print: arg0]
+	# arg1 and 2 are not accessed, so are not
+	# evaluated.
+}
+</code></pre></div><p>Function calls are also lazily evaluated, which means passing a function call as an
+argument to a function will not evaluate that function until it is accessed in the
+function it is passed to. This makes things like this possible:</p><div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">[</span>let foo<span class="token punctuation">:</span> <span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+	<span class="token punctuation">[</span><span class="token keyword">print</span><span class="token punctuation">:</span> <span class="token string">&quot;before call&quot;</span><span class="token punctuation">]</span>
+	func
+	<span class="token punctuation">[</span><span class="token keyword">print</span><span class="token punctuation">:</span> <span class="token string">&quot;after call&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>foo<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token keyword">print</span> <span class="token string">&quot;function called&quot;</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+<span class="token comment"># Output:</span>
+<span class="token comment">#   before call</span>
+<span class="token comment">#   function called</span>
+<span class="token comment">#   after call</span>
+</code></pre></div></div><div class="page-edit"><!----><!----></div><div class="page-nav"><p class="inner"><!----><span class="next"><a href="/crisp/dev/">
+          Developer Documentation
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/crisp/assets/js/app.f159cbdb.js" defer></script><script src="/crisp/assets/js/3.732a9b55.js" defer></script>
+  </body>
+</html>
