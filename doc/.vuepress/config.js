@@ -4,7 +4,7 @@ module.exports = {
 	base: "/crisp/",
 	themeConfig: {
 		nav: [
-			{ text: "Source", link: "https://gitlab.com/swissChili/crisp" },
+			{ text: "Source", link: "https://github.com/swissChili/crisp" },
 			{ text: "Guide", link: "/guide/" },
 			{ text: "Developer Docs", link: "/dev/" }
 		],
